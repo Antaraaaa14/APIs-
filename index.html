@@ -1,0 +1,30 @@
+<!Doctype Html>
+<html>
+    <head>
+        <link rel = "stylesheet"  href= "style.css">
+    </head>
+<body>
+<div class="dots"></div>
+<div class="ring"></div>
+
+<div class="card">
+    <button onclick="getLocation()">Show My Location</button>
+    <p id="loc"></p>
+</div>
+
+<script>
+function getLocation(){
+    navigator.geolocation.getCurrentPosition(function (position) {
+        document.getElementById("loc").innerHTML =
+        "Latitude: " + position.coords.latitude + "<br>" +
+        "Longitude: " + position.coords.longitude;
+    });
+}
+
+    // navigator.geolocation.getCurrentPosition(pos=> console.log(pos.coords.latitude, pos.coords.longitude));
+    // navigator.geolocation.getCurrentPosition(p => alert(p.coords.latitude + "," + p.coords.longitude));
+    // </script>
+</body>
+</html>
+
+

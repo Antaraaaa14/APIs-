@@ -1,0 +1,120 @@
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+    position: relative;
+}
+
+body::before,
+body::after{
+    content:"";
+    position:absolute;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    filter: blur(120px);
+    transition: transform 3s ease, opacity 3s ease;
+    opacity:0.6;
+}
+
+body::before{
+    background:#00ffe7;
+    top:-120px;
+    left:-120px;
+}
+
+body::after{
+    background:#ff66cc;
+    bottom:-120px;
+    right:-120px;
+}
+
+
+.dots{
+    position:absolute;
+    inset:0;
+    background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size:40px 40px;
+    opacity:0.5;
+}
+
+
+.ring{
+    position:absolute;
+    width:480px;
+    height:480px;
+    border-radius:50%;
+    border:2px solid rgba(0,255,255,0.35);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+
+.card{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(255,255,255,0.85);
+    padding:38px 55px;
+    border-radius:22px;
+    text-align:center;
+    box-shadow:0 18px 40px rgba(0,0,0,0.45);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+button{
+    padding:15px 38px;
+    font-size:18px;
+    border:none;
+    border-radius:26px;
+    background: linear-gradient(135deg, #0b0502, #ff4500);
+    color:white;
+    cursor:pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow:0 0 18px rgba(255,127,80,0.7);
+    text-shadow:0 1px 3px rgba(0,0,0,0.4);
+}
+
+button:hover{
+    transform:scale(1.12);
+    box-shadow:0 0 30px rgba(255,127,80,0.9);
+}
+
+#loc{
+    margin-top:28px;
+    font-size:20px;
+    font-weight:bold;
+    color:#003333;
+    background:rgba(0,0,0,0.08);
+    padding:20px 30px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,255,255,0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-shadow:0 0 6px rgba(0,150,150,0.6);
+}
+
+.card:hover{
+    transform:translate(-50%,-55%);
+    box-shadow:0 25px 55px rgba(0,0,0,0.55);
+}
+
+.card:hover #loc{
+    transform:translateY(-6px);
+    box-shadow:0 15px 35px rgba(0,255,255,0.6);
+}
+
+.card:hover ~ .ring{
+    transform:translate(-50%,-50%) scale(1.05);
+    box-shadow:0 0 30px rgba(0,255,255,0.4);
+}
+
+.card:hover ~ body::before,
+.card:hover ~ body::after{
+    opacity:0.8;
+}
